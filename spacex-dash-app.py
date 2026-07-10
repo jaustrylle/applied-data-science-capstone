@@ -25,6 +25,20 @@ app.layout = html.Div(children=[html.H1('SpaceX Launch Records Dashboard',
 
                                 html.Br(),
 
+                                dcc.Dropdown(
+                                  id="site-dropdown",
+                                  options=[
+                                      {"label": "All Sites", "value": "ALL"},
+                                      {"label": "CCAFS LC-40", "value": "CCAFS LC-40"},
+                                      {"label": "CCAFS SLC-40", "value": "CCAFS SLC-40"},
+                                      {"label": "KSC LC-39A", "value": "KSC LC-39A"},
+                                      {"label": "VAFB SLC-4E", "value": "VAFB SLC-4E"},
+                                  ],
+                                  value="ALL",
+                                  placeholder="Select a Launch Site here",
+                                  searchable=True,
+                              ),
+
                                 # TASK 2: Add a pie chart to show the total successful launches count for all sites
                                 # If a specific launch site was selected, show the Success vs. Failed counts for the site
                                 html.Div(dcc.Graph(id='success-pie-chart')),
